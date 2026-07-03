@@ -11,30 +11,29 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'gradlew.bat build'
+                echo 'HTML project - No build required'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'gradlew.bat test'
+                echo 'No tests available'
             }
         }
 
-        stage('Run') {
+        stage('Deploy') {
             steps {
-                bat 'gradlew.bat run'
+                bat 'dir'
             }
         }
     }
 
     post {
         success {
-            echo 'Build Successful!'
+            echo 'Pipeline executed successfully!'
         }
-
         failure {
-            echo 'Build Failed!'
+            echo 'Pipeline failed!'
         }
     }
 }
